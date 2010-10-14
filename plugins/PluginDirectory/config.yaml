@@ -1,0 +1,7 @@
+id: PluginDirectory
+name: 'Plugin Directory'
+description: 'A framework for deploying a plugin directory powered by git.'
+plugin_author: 'Endevver, LLC.'
+author_link: 'http://endevver.com/'
+version: 0.1
+
