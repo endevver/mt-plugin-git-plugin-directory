@@ -34,6 +34,7 @@ sub _repo_to_entry {
     my $e = MT::Entry->new;
     $e->title( $p_hash->{name} );
     $e->excerpt( $p_hash->{description} );
+    $e->text( $p_hash->{readme_text} || $p_hash->{description});
 
     return $e;
 }
@@ -46,17 +47,32 @@ sub _plugin_to_hash {
     require File::Find;
 
     my $p_hash;
+    my $readme_txt;
     my $wanted = sub {
-        return unless /^config\.yaml\z/s;   # this doesn't take into account
-                                            # multiple config.yaml files
-                                            # in a plugin (rare, but possible)
+        my $file = $_;
         my $name = $File::Find::name;
+        if ( $file =~ /^config\.yaml\z/s ) {
 
-        require YAML::Tiny;
-        my $y = YAML::Tiny->read($name);
-        $p_hash = $y->[0];
+            # this doesn't take into account
+            # multiple config.yaml files
+            # in a plugin (rare, but possible)
+
+            require YAML::Tiny;
+            my $y = YAML::Tiny->read($name);
+            $p_hash = $y->[0];
+        }
+        elsif ( $file =~ /^README(?:\.\w+)\z/s ) {
+            open( my $readme_fh, "<", $name );
+            local $/ = undef;
+            $readme_txt = <$readme_fh>;
+            close($readme_fh);
+        }
     };
     File::Find::find( { wanted => $wanted }, $dir );
+
+    # shove the readme text into the hash
+    # if it was found
+    $p_hash->{readme_text} = $readme_txt if $readme_txt;
     return $p_hash;
 }
 
