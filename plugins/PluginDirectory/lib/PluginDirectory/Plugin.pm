@@ -1,7 +1,64 @@
 package PluginDirectory::Plugin;
 
 use strict;
+use warnings;
 
+sub _repo_to_entry {
+    my $p = shift;
+    my ($url) = @_;
+
+    # grab the configured tempdir
+    require MT;
+    my $tmp_dir = MT->config->TempDir;
+
+    # generate a temp directory name
+    # since we can't clone into an existing directory
+    require File::Temp;
+    $tmp_dir = File::Temp::tempdir( DIR => $tmp_dir, CLEANUP => 1 );
+
+    # start the cloning process
+    require Git::Repository;
+    my $r = Git::Repository->create( clone => $url => $tmp_dir );
+
+    # take the plugin dir and build a hash from it
+    my $p_hash = $p->_plugin_to_hash($tmp_dir);
+
+    return if !$p_hash;
+
+    require MT::Entry;
+
+    # name => title
+    # description => excerpt
+    # README => text
+    # other bits?
+    my $e = MT::Entry->new;
+    $e->title( $p_hash->{name} );
+    $e->excerpt( $p_hash->{description} );
+
+    return $e;
+}
+
+sub _plugin_to_hash {
+    my $p = shift;
+    my ($dir) = @_;
+
+    # find the config.yaml file
+    require File::Find;
+
+    my $p_hash;
+    my $wanted = sub {
+        return unless /^config\.yaml\z/s;   # this doesn't take into account
+                                            # multiple config.yaml files
+                                            # in a plugin (rare, but possible)
+        my $name = $File::Find::name;
+
+        require YAML::Tiny;
+        my $y = YAML::Tiny->read($name);
+        $p_hash = $y->[0];
+    };
+    File::Find::find( { wanted => $wanted }, $dir );
+    return $p_hash;
+}
 
 1;
 __END__
