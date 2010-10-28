@@ -5,3 +5,10 @@ plugin_author: 'Endevver, LLC.'
 author_link: 'http://endevver.com/'
 version: 0.1
 
+applications:
+  plugin_directory:
+    handler: $PluginDirectory::PluginDirectory::App
+    methods:
+      do_submit_repository:
+        handler: $PluginDirectory::PluginDirectory::App::do_submit_repository
+        requires_login: 1
