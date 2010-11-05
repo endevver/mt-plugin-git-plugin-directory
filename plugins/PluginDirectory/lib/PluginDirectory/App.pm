@@ -4,9 +4,9 @@ package PluginDirectory::App;
 use strict;
 use warnings;
 
-use JSON;
+use base qw(MT::App);
 
-use base MT::App;
+use JSON;
 
 sub id {'plugin_directory'}
 
