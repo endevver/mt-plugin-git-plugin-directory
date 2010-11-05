@@ -50,6 +50,7 @@ sub _repo_to_entry {
     $e->title( $p_hash->{name} );
     $e->excerpt( $p_hash->{description} );
     $e->text( $p_hash->{readme_text} || $p_hash->{description});
+    $e->repository_url($url);
 
     return $e;
 }
