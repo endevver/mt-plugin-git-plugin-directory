@@ -5,6 +5,10 @@ plugin_author: 'Endevver, LLC.'
 author_link: 'http://endevver.com/'
 version: 0.1
 
+object_types:
+  entry:
+    repository_url: string meta indexed
+
 applications:
   plugin_directory:
     handler: $PluginDirectory::PluginDirectory::App

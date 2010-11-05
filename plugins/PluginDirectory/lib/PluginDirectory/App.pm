@@ -4,6 +4,8 @@ package PluginDirectory::App;
 use strict;
 use warnings;
 
+use JSON;
+
 use base MT::App;
 
 sub id {'plugin_directory'}
@@ -46,6 +48,20 @@ sub do_submit_repository {
     # just a thank you template, I suppose
 
     $app->load_tmpl('repository_submitted.tmpl');
+}
+
+# github docs here: http://help.github.com/post-receive-hooks/
+
+sub github_update_ping {
+  my $app = shift;
+
+  my $payload = $app->query->param('payload');
+
+  my $payload_hash = decode_json($payload);
+
+  my $repo_url = $payload_hash->{repository}->{url};
+
+  my $p = $app->{component};
 }
 
 1;

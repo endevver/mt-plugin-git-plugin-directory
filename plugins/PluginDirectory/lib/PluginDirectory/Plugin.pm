@@ -3,6 +3,19 @@ package PluginDirectory::Plugin;
 use strict;
 use warnings;
 
+sub _entry_for_repo {
+  my $p = shift;
+  my ($url) = @_;
+
+  require MT::Entry;
+  my @e = MT::Entry->search_by_meta ('repository_url', $url);
+  if (!@e) {
+    $e[0] = _repo_to_entry($url);
+  }
+
+  return $e[0];
+}
+
 sub _repo_to_entry {
     my $p = shift;
     my ($url) = @_;
