@@ -3,6 +3,8 @@ package PluginDirectory::Plugin;
 use strict;
 use warnings;
 
+use base qw(MT::Plugin);
+
 sub _entry_for_repo {
   my $p = shift;
   my ($url) = @_;
@@ -71,7 +73,7 @@ sub _plugin_to_hash {
             # in a plugin (rare, but possible)
 
             require YAML::Tiny;
-            my $y = YAML::Tiny->read($name);
+            my $y = YAML::Tiny->read($name) or die YAML::Tiny->errstr;
             $p_hash = $y->[0];
         }
         elsif ( $file =~ /^README(?:\.\w+)\z/s ) {

@@ -5,14 +5,21 @@ plugin_author: 'Endevver, LLC.'
 author_link: 'http://endevver.com/'
 version: 0.1
 
+init: >
+  sub {
+      require PluginDirectory::Plugin;
+      bless shift, 'PluginDirectory::Plugin'
+  }
+
 object_types:
   entry:
     repository_url: string meta indexed
 
-applications:
-  plugin_directory:
-    handler: $PluginDirectory::PluginDirectory::App
-    methods:
-      do_submit_repository:
-        handler: $PluginDirectory::PluginDirectory::App::do_submit_repository
-        requires_login: 1
+
+#applications:
+#  plugin_directory:
+#    handler: $PluginDirectory::PluginDirectory::App
+#    methods:
+#      do_submit_repository:
+#        handler: $PluginDirectory::PluginDirectory::App::do_submit_repository
+#        requires_login: 1
