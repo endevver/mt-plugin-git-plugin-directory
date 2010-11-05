@@ -6,16 +6,16 @@ use warnings;
 use base qw(MT::Plugin);
 
 sub _entry_for_repo {
-  my $p = shift;
-  my ($url) = @_;
+    my $p = shift;
+    my ($url) = @_;
 
-  require MT::Entry;
-  my @e = MT::Entry->search_by_meta ('repository_url', $url);
-  if (!@e) {
-    $e[0] = _repo_to_entry($url);
-  }
+    require MT::Entry;
+    my @e = MT::Entry->search_by_meta( 'repository_url', $url );
+    if ( !@e ) {
+        $e[0] = _repo_to_entry($url);
+    }
 
-  return $e[0];
+    return $e[0];
 }
 
 sub _repo_to_entry {
@@ -49,7 +49,7 @@ sub _repo_to_entry {
     my $e = MT::Entry->new;
     $e->title( $p_hash->{name} );
     $e->excerpt( $p_hash->{description} );
-    $e->text( $p_hash->{readme_text} || $p_hash->{description});
+    $e->text( $p_hash->{readme_text} || $p_hash->{description} );
     $e->repository_url($url);
 
     return $e;

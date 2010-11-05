@@ -15,12 +15,12 @@ sub init { return shift->SUPER::init(@_); }
 sub init_request { shift->SUPER::init_request(@_); }
 
 sub submit_repository {
-  my $app = shift;
+    my $app = shift;
 
-  # how do we determine the blog?
-  # just go with the blog_id parameter?
+    # how do we determine the blog?
+    # just go with the blog_id parameter?
 
-  $app->load_tmpl('submit_repository.tmpl');
+    $app->load_tmpl('submit_repository.tmpl');
 }
 
 sub do_submit_repository {
@@ -34,15 +34,15 @@ sub do_submit_repository {
     my $p = $app->{component};
 
     require MT::Entry;
-    my $e = $p->_repo_to_entry ($repo_url);
-    $e->author_id($user->id);
-    $e->status(MT::Entry::RELEASE());
+    my $e = $p->_repo_to_entry($repo_url);
+    $e->author_id( $user->id );
+    $e->status( MT::Entry::RELEASE() );
 
-    $e->blog_id($app->blog->id);
+    $e->blog_id( $app->blog->id );
 
     $e->save or die "Error saving entry for plugin: " . $e->errstr;
 
-    $app->rebuild_entry(Entry => $e);
+    $app->rebuild_entry( Entry => $e );
 
     # some kind of response here, but we can't assume the entry has been built
     # just a thank you template, I suppose
@@ -53,21 +53,21 @@ sub do_submit_repository {
 # github docs here: http://help.github.com/post-receive-hooks/
 
 sub github_update_ping {
-  my $app = shift;
+    my $app = shift;
 
-  my $payload = $app->query->param('payload');
+    my $payload = $app->query->param('payload');
 
-  my $payload_hash = decode_json($payload);
+    my $payload_hash = decode_json($payload);
 
-  # repository url is *NOT* the git cloning URL
-  # I'm thinking just appending .git to the end is enough
-  my $repo_url = $payload_hash->{repository}->{url};
-  $repo_url .= ".git";
+    # repository url is *NOT* the git cloning URL
+    # I'm thinking just appending .git to the end is enough
+    my $repo_url = $payload_hash->{repository}->{url};
+    $repo_url .= ".git";
 
-  my $p = $app->{component};
+    my $p = $app->{component};
 
-  # get the entry
-  my $e = $p->_entry_for_repo($repo_url);
+    # get the entry
+    my $e = $p->_entry_for_repo($repo_url);
 }
 
 1;
