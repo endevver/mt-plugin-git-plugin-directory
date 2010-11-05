@@ -59,9 +59,15 @@ sub github_update_ping {
 
   my $payload_hash = decode_json($payload);
 
+  # repository url is *NOT* the git cloning URL
+  # I'm thinking just appending .git to the end is enough
   my $repo_url = $payload_hash->{repository}->{url};
+  $repo_url .= ".git";
 
   my $p = $app->{component};
+
+  # get the entry
+  my $e = $p->_entry_for_repo($repo_url);
 }
 
 1;
