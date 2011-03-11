@@ -51,6 +51,7 @@ sub do_submit_repository {
 }
 
 # github docs here: http://help.github.com/post-receive-hooks/
+#         and here: http://develop.github.com/p/repo.html
 
 sub github_update_ping {
     my $app = shift;
@@ -62,7 +63,8 @@ sub github_update_ping {
     # repository url is *NOT* the git cloning URL
     # I'm thinking just appending .git to the end is enough
     my $repo_url = $payload_hash->{repository}->{url};
-    $repo_url .= ".git";
+    $repo_url
+        .= ".git";   # with recent github changes, we probably don't need this
 
     my $p = $app->{component};
 
