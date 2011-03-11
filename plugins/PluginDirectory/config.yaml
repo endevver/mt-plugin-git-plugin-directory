@@ -14,6 +14,7 @@ init: >
 object_types:
   entry:
     repository_url: string meta indexed
+    repository_tags: array meta
 
 
 #applications:

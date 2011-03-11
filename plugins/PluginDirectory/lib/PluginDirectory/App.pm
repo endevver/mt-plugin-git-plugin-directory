@@ -68,6 +68,52 @@ sub github_update_ping {
 
     # get the entry
     my $e = $p->_entry_for_repo($repo_url);
+
+    # if it's new or if it's a draft entry
+    # we need to check for tags to determine
+    # whether or not we can publish it
+    if ( !$e->id || $e->status != MT::Entry::RELEASE() ) {
+
+        # TODO: this needs to get factored out
+        my $gh_api_url
+            = 'http://github.com/api/v2/json/repos/show/%s/%s/tags';
+        $gh_api_url = sprintf $gh_api_url,
+            $payload_hash->{repository}->{owner}->{name},
+            $payload_hash->{repository}->{name};
+
+        my $ua   = MT->new_ua;
+        my $res  = $ua->get($gh_api_url);
+        my $json = $res->content;
+
+        my $tag_hash = decode_json($json);
+        my @tags = keys %{ $tag_hash->{tags} || {} };
+        $e->repository_tags( [@tags] );
+
+        # if there are tags, publish the sucker
+        if (@tags) {
+            $e->status(MT::Entry::RELEASE);
+        }
+    }
+
+    # we're getting pinged about the entry's repository
+    # we should save no matter what
+    # even if something in the entry itself didn't change
+    # something in the repository did
+    # and somebody might want to rebuild something
+    $e->save;
+
+    if ( MT::Entry::RELEASE == $e->status ) {
+        require MT::Util;
+        MT::Util::start_background_task(
+            sub {
+                $app->rebuild_entry(
+                    Entry             => $e,
+                    Force             => 1,
+                    BuildDependencies => 1
+                );
+            }
+        );
+    }
 }
 
 1;
