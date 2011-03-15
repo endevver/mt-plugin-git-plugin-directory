@@ -16,6 +16,13 @@ object_types:
     repository_url: string meta indexed
     repository_tags: array meta
 
+applications:
+  plugin_directory:
+    handler: $PluginDirectory::PluginDirectory::App
+    methods:
+      github_update_ping:
+        handler: $PluginDirectory::PluginDirectory::App::github_update_ping
+        requires_login: 0
 
 #applications:
 #  plugin_directory:
