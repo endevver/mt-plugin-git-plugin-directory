@@ -12,7 +12,7 @@ sub _entry_for_repo {
     require MT::Entry;
     my @e = MT::Entry->search_by_meta( 'repository_url', $url );
     if ( !@e ) {
-        $e[0] = _repo_to_entry($url);
+        $e[0] = $p->_repo_to_entry($url);
     }
 
     return $e[0];
@@ -29,7 +29,7 @@ sub _repo_to_entry {
     # generate a temp directory name
     # since we can't clone into an existing directory
     require File::Temp;
-    $tmp_dir = File::Temp::tempdir( DIR => $tmp_dir, CLEANUP => 1 );
+    $tmp_dir = File::Temp::tempdir( DIR => $tmp_dir, CLEANUP => 0 );
 
     # start the cloning process
     require Git::Repository;
@@ -52,6 +52,16 @@ sub _repo_to_entry {
     $e->text( $p_hash->{readme_text} || $p_hash->{description} );
     $e->repository_url($url);
 
+    # The Blog ID
+    $e->blog_id( MT->config->PluginDirectoryBlogID );
+
+    # The Author
+    # TODO: In the future, offer option to auto-create authors in MT/Melody
+    #       and load by email address from the github ping payload
+    $e->author_id( MT->config->PluginDirectoryAuthorID );
+
+    # Default status is draft
+    $e->status( MT::Entry::HOLD() );
     return $e;
 }
 
@@ -60,6 +70,9 @@ sub _plugin_to_hash {
     my ($dir) = @_;
 
     # find the config.yaml file
+    # and README(.*) file
+    # and ignore anything in a /t/ directory
+    # just in case
     require File::Find;
 
     my $p_hash;
@@ -67,7 +80,9 @@ sub _plugin_to_hash {
     my $wanted = sub {
         my $file = $_;
         my $name = $File::Find::name;
-        if ( $file =~ /^config\.yaml\z/s ) {
+        if (   $file =~ /^config\.yaml\z/s
+            && $name !~ m{/t/.*config\.yaml\z}s )
+        {
 
             # this doesn't take into account
             # multiple config.yaml files
@@ -77,7 +92,9 @@ sub _plugin_to_hash {
             my $y = YAML::Tiny->read($name) or die YAML::Tiny->errstr;
             $p_hash = $y->[0];
         }
-        elsif ( $file =~ /^README(?:\.\w+)\z/s ) {
+        elsif ($file =~ /^README(?:\.\w+)\z/s
+            && $name !~ m{/t/.*README.*\z}s )
+        {
             open( my $readme_fh, "<", $name );
             local $/ = undef;
             $readme_txt = <$readme_fh>;

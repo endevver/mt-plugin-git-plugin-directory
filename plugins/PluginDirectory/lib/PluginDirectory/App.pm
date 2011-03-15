@@ -10,7 +10,11 @@ use JSON;
 
 sub id {'plugin_directory'}
 
-sub init { return shift->SUPER::init(@_); }
+sub init {
+    my $app = shift->SUPER::init(@_);
+    $app->{default_mode} = 'github_update_ping';
+    return $app;
+}
 
 sub init_request { shift->SUPER::init_request(@_); }
 
@@ -31,7 +35,7 @@ sub do_submit_repository {
 
     my $repo_url = $app->query->param('repository_url');
 
-    my $p = $app->{component};
+    my $p = MT->component( $app->{component} );
 
     require MT::Entry;
     my $e = $p->_repo_to_entry($repo_url);
@@ -66,7 +70,7 @@ sub github_update_ping {
     $repo_url
         .= ".git";   # with recent github changes, we probably don't need this
 
-    my $p = $app->{component};
+    my $p = MT->component( $app->{component} );
 
     # get the entry
     my $e = $p->_entry_for_repo($repo_url);
@@ -93,7 +97,7 @@ sub github_update_ping {
 
         # if there are tags, publish the sucker
         if (@tags) {
-            $e->status(MT::Entry::RELEASE);
+            $e->status( MT::Entry::RELEASE() );
         }
     }
 
@@ -104,7 +108,7 @@ sub github_update_ping {
     # and somebody might want to rebuild something
     $e->save;
 
-    if ( MT::Entry::RELEASE == $e->status ) {
+    if ( MT::Entry::RELEASE() == $e->status ) {
         require MT::Util;
         MT::Util::start_background_task(
             sub {
@@ -116,6 +120,8 @@ sub github_update_ping {
             }
         );
     }
+
+    return "Thank you for updating " . $e->title . "!\n";
 }
 
 1;

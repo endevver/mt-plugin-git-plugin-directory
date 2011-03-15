@@ -24,6 +24,12 @@ applications:
         handler: $PluginDirectory::PluginDirectory::App::github_update_ping
         requires_login: 0
 
+config_settings:
+  PluginDirectoryBlogID:
+    default: 1
+  PluginDirectoryAuthorID:
+    default: 1
+
 #applications:
 #  plugin_directory:
 #    handler: $PluginDirectory::PluginDirectory::App
