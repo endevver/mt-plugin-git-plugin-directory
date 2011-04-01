@@ -54,6 +54,12 @@ sub _repo_to_entry {
     $e->title( $p_hash->{name} );
     $e->excerpt( $p_hash->{description} );
     $e->text( $p_hash->{readme_text} || $p_hash->{description} );
+    if (   $p_hash->{readme_ext} eq 'md'
+        || $p_hash->{readme_ext} eq 'markdown' )
+    {
+        $e->convert_breaks('markdown');
+    }
+
     $e->repository_url($url);
 
     # The Blog ID
@@ -81,6 +87,7 @@ sub _plugin_to_hash {
 
     my $p_hash;
     my $readme_txt;
+    my $readme_ext;
     my $wanted = sub {
         my $file = $_;
         my $name = $File::Find::name;
@@ -96,9 +103,10 @@ sub _plugin_to_hash {
             my $y = YAML::Tiny->read($name) or die YAML::Tiny->errstr;
             $p_hash = $y->[0];
         }
-        elsif ($file =~ /^README(?:\.\w+)\z/s
-            && $name !~ m{/t/.*README.*\z}s )
+        elsif ($name !~ m{/t/.*README.*\z}s
+            && $file =~ /^README(?:\.(\w+))\z/s )
         {
+            $readme_ext = $1;
             open( my $readme_fh, "<", $name );
             local $/ = undef;
             $readme_txt = <$readme_fh>;
@@ -110,6 +118,7 @@ sub _plugin_to_hash {
     # shove the readme text into the hash
     # if it was found
     $p_hash->{readme_text} = $readme_txt if $readme_txt;
+    $p_hash->{readme_ext}  = $readme_ext if $readme_ext;
     return $p_hash;
 }
 
