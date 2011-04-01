@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use base qw(MT::Plugin);
+use File::Spec;
 
 sub _entry_for_repo {
     my $p = shift;
@@ -29,7 +30,10 @@ sub _repo_to_entry {
     # generate a temp directory name
     # since we can't clone into an existing directory
     require File::Temp;
-    $tmp_dir = File::Temp::tempdir( DIR => $tmp_dir, CLEANUP => 0 );
+    $tmp_dir = File::Temp::tempdir( DIR => $tmp_dir, CLEANUP => 1 );
+
+    # git can complain about existing directories
+    $tmp_dir = File::Spec->catdir( $tmp_dir, 'gh-repo' );
 
     # start the cloning process
     require Git::Repository;
