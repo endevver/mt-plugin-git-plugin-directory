@@ -1,0 +1,2062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<script type="text/javascript" src="outliner.js"></script><style type="text/css">
+			
+			
+			th {
+			vertical-align: bottom;
+			
+			}
+			
+			td {
+			vertical-align: top;
+			}
+			
+			td,th {
+			
+			empty-cells: show;
+			}
+			
+			.top-right-border {
+			
+			}
+			
+			.no-border {
+			border-bottom: 0px;
+			border-left: 0px;
+			}
+			
+			
+			
+			
+			table {
+			
+			font-family: Helvetica, sans-serif;
+			font-size: 12px;
+						
+			
+			}
+
+			
+			
+			.wholeDocument {
+			
+	
+			}
+		
+			
+			td.subcell {
+			border: none;
+			}
+			
+			td.content {
+			padding-left: 4px;
+			padding-bottom: 2px;
+			padding-top: 1px;
+			padding-right: 3px;
+			}
+			
+			.full {
+			height: 100%;
+			}
+			
+			.heighthack {
+			height: 8px;
+			}
+			
+			div.titlepadding { 
+			padding-right:3px;
+			padding-left:6px;
+			padding-bottom:3px;
+			padding-top: 2px;
+			}
+			
+			
+					.summary_node {
+						background: rgba(0,0,0,.12);
+						margin-bottom: 1px;
+					}
+				
+			
+			div.column {   
+			padding-right: 3px;
+			padding-left: 4px;
+			padding-top: 1px;
+			padding-bottom: 2px;
+			margin-right: 1px;
+			}
+			
+			.labelpadding {
+			padding-right: 3px;
+			padding-top: 1px;
+			padding-left: 2px;
+			}
+			
+			.indicator {
+			white-space: nowrap;
+			text-align:right;
+			margin-right: 0px;
+			vertical-align: top;
+			padding-top: 1px;
+			padding-left: 0px;
+			}
+			
+			.wholedocgutter {
+			
+			}
+			
+			div.row {
+			}
+			
+			div.headerRow {
+			}
+			
+			.expanded {
+			display: inline;
+			}
+			.collapsed {
+			display: none;
+			}
+			
+            div.palette-hit-zone {
+                position: fixed;
+                bottom: 0px;
+				height: 33%;
+                left:50%;
+                width: 66%;
+                margin-left: -33%;
+            }
+
+			div.floating-palette {
+                -webkit-border-radius: 5px;
+                -webkit-transition: opacity is fade-in-out;
+                -webkit-transition-duration: 1s;
+				background-color: rgb(64, 64, 64);
+                opacity:0.7;
+				width: 88px;
+				height: 44px;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                margin-left: -44px;
+			}
+            
+            div.palette-cell {
+                opacity:1;
+                margin-top: 6px;
+                margin-bottom: 6px;
+                position: absolute;
+                height: 32px;
+                width: 32px;
+            }
+            
+            div.cell-divider {
+                position: absolute;
+                margin-top: 6px;
+                margin-bottom: 6px;
+                margin-left: 44px;
+                height: 32px;
+                width:0px;
+                position:absolute;
+                left:0px;
+                border-right:rgb(207, 207, 207) 2px solid;
+            }
+
+			
+			
+			
+			.note { 
+			padding-left: 5px;
+			padding-right: 3px; 
+			border: none; 
+			color:rgb(84,84,84) ;  font-style: italic;font-size: 13px;font-style: italic;font-size: 13px;
+			}
+			
+			/* Total table width is 713
+			Adjusted table width is 755 */
+			
+			.wholething {
+				width: auto;
+			}
+			
+			
+			table.row {
+				
+						width: 713px;
+						
+			
+			}
+			
+			
+    .col_width1 { 
+        width: 713px;  /* Actual width is 713 */
+    }
+
+    .col1 { 
+        
+    }
+
+    .colbackground1 { 
+        
+    }
+
+			
+			/* Level Styles */
+			
+			
+    .columntitle { 
+        text-decoration:  underline;font-weight: 900;  
+    }
+
+    .level1 { 
+        color:rgb(254,255,254) ;  font-size: 24px;
+    }
+
+    .levelcolor1 { 
+        background-color:rgb(3,0,91) ;  
+    }
+
+    .levelguttercolor1 { 
+        
+    }
+
+    .level2 { 
+        
+    }
+
+    .levelcolor2 { 
+        
+    }
+
+    .levelguttercolor2 { 
+        
+    }
+
+    .level3 { 
+        
+    }
+
+    .levelcolor3 { 
+        
+    }
+
+    .levelguttercolor3 { 
+        
+    }
+
+    .level4 { 
+        
+    }
+
+    .levelcolor4 { 
+        
+    }
+
+    .levelguttercolor4 { 
+        
+    }
+
+    .level5 { 
+        
+    }
+
+    .levelcolor5 { 
+        
+    }
+
+    .levelguttercolor5 { 
+        
+    }
+
+    .level6 { 
+        font-size: 14px;
+    }
+
+    .levelcolor6 { 
+        
+    }
+
+    .levelguttercolor6 { 
+        
+    }
+
+    .ns-Highlight { 
+        }
+
+    .ns-Citation { 
+        text-decoration:  underline;}
+
+    .ns-Emphasis { 
+        font-style: italic;}
+
+    .ns-bg-Highlight { 
+        background-color:rgb(255,255,102) ;  }
+
+    .ns-bg-Citation { 
+        }
+
+    .ns-bg-Emphasis { 
+        }
+
+    .ns-gutter-Highlight { 
+        }
+
+    .ns-gutter-Citation { 
+        }
+
+    .ns-gutter-Emphasis { 
+        }
+</style>
+</head>
+<body class="wholeDocument"><table cellspacing="0" cellpadding="0" class="top-right-border"><tr><td class="wholething no-border">
+<!--Column Titles--><table cellspacing="0" border="0" cellpadding="0" class="headerRow heighthack"><tr><td class=" colbackground1 col_width1"><div class="columntitle titlepadding">Plugin Directory plugin APIs<br>
+</div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmouseover="hover('if7ANQIANHSA', true)" onmouseout="hover('if7ANQIANHSA', false)" onmousedown="ioSwitch('pf7ANQIANHSA', event.shiftKey)" id="if7ANQIANHSA" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="blank.png" title="collapse"></td>
+<td class=" content level1 subcell">Introduction<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pf7ANQIANHSA" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('piOppGAxZIM-', event.shiftKey)" id="iiOppGAxZIM-" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">This document describes the resources that make up the Plugin Directory plugin API v1. This API actually consists of two distinct APIs:<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="piOppGAxZIM-" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">Repository metadata API<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Provides plugin authors control over nearly every aspect of their plugin's display in the plugin directory all from the comfort of their working Git repository and favorite text editor.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">REST API<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This API provides a RESTful, HTTP-based interface for programmatic access to all major system functions creating numerous opportunities for integration with third-party applications and utilities including, perhaps most importantly, Git hook scripts for automating Plugin Directory updates.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('ppoBLx27ZZem', event.shiftKey)" id="ipoBLx27ZZem" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level1 subcell">The Repository Metadata API<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="ppoBLx27ZZem" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pbmzthLl78fK', event.shiftKey)" id="ibmzthLl78fK" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell" style="font-size: 14px;">What is the Repository Metadata API<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1" style="font-size: 14px;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Metadata API is the language and process plugin authors use to richly describe their plugins to the Plugin Directory. This is the very heart of the Plugin Directory and was designed to combat the two biggest problems with the original MT plugin directory (and, really, any user-generated directory): <br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pbmzthLl78fK" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell" style="font-size: 14px;">Barrier to entry/Friction of interaction<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1" style="font-size: 14px;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Software development is hard enough without adding extra steps like going to the Plugin Directory, logging in, filling out some huge form to submit a plugin you just released or updating the same form every time you push out an update.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell" style="font-size: 14px;">Data rot<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1" style="font-size: 14px;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">As time goes on, information not constantly tended to becomes stale and invalid.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell" style="font-size: 14px;">How the API solves the problem<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1" style="font-size: 14px;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Metadata API serves to eliminate (to the greatest possible degree) the overhead of submitting and updating plugin information by adapting to and integrating tightly with the typical workflow of a plugin developer.  Instead of forcing plugin developers to constantly cater to the maintenance needs of an external, centralized directory, the design leverages the power and decentralized nature of Git to automate nearly every aspect of plugin directory maintenance and respect the true canonical source for a plugin's metadata: each author's working repository.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('phedTJF-eh5K', event.shiftKey)" id="ihedTJF-eh5K" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell" style="font-size: 14px;">Using the Metadata API<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1" style="font-size: 14px;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The vast majority of plugin metadata displayed by the Plugin Directory is provided and directly controlled by two YAML files located at the root of each plugin's repository: config.yaml and plugin.yaml.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="phedTJF-eh5K" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pi_lGceg4Uqm', event.shiftKey)" id="ii_lGceg4Uqm" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell" style="font-size: 14px;">config.yaml—MT API interactions and plugin behaviors<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1" style="font-size: 14px;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The config.yaml file is already well established amongst plugin developers as the file which defines a plugin's basic information as well as the entirety of its behaviors and interactions with MT/Melody's plugin API.  Other plugins such as Config Assistant and Theme Manager extend the configuration capabilities even further.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pi_lGceg4Uqm" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pmiCsnK-IIFz', event.shiftKey)" id="imiCsnK-IIFz" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell" style="font-size: 14px;">Required fields<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1" style="font-size: 14px;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Plugin Directory does not impose any changes on the vocabulary used or functionality provided by the config.yaml.  However, to be included into the Plugin Directory, the following fields must be defined.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pmiCsnK-IIFz" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">name<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The name of the plugin as shown within MT/Melody in the listing of installed plugins.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A string identifier for the plugin that should be short (&lt; ~20 chars) but unique across *all* plugins. By convention, they are usually camel-cased and have no punctuation such as dashes, underscores, periods or colons.  Examples: ConfigAssistant, ThemeManager, OrderedCF, Log4MT<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">version<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin's version number. We generally suggest a three-part version, such as 1.0.0.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('ppVAnoCV4JTw', event.shiftKey)" id="ipVAnoCV4JTw" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell" style="font-size: 14px;">plugin.yaml—Plugin meta-information<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1" style="font-size: 14px;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin.yaml file is newly introduced by this specification and intended to contain all of the necessary metadata not already contained in the config.yaml.  By putting this extra information in a separate file only consumed by the Plugin Directory, it serves as a performance-friendly extension of each plugin's config.yaml file.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="ppVAnoCV4JTw" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pbbcs-YhIdI8', event.shiftKey)" id="ibbcs-YhIdI8" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell" style="font-size: 14px;">Required fields<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pbbcs-YhIdI8" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img onmousedown="ioSwitch('pb36fSCZU8go', event.shiftKey)" id="ib36fSCZU8go" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">config_yaml_path<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The filesystem path to the config.yaml, relative to plugin.yaml. Example: plugins/Foo/config.yaml<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pb36fSCZU8go" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor6"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level6 levelguttercolor6" style="width: 89px;"></td>
+<td class=" subcell wholedocgutter indicator level6 levelguttercolor6" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level6 subcell" style="font-style: italic;">This field is only required if config.yaml is not in the root of the repository<br>
+</td>
+</tr></table></div></td></tr></table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img onmousedown="ioSwitch('pfd1WjHIcJho', event.shiftKey)" id="ifd1WjHIcJho" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">version_tag<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Git tag corresponding to the latest production-ready release of the plugin. <br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pfd1WjHIcJho" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor6"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level6 levelguttercolor6" style="width: 89px;"></td>
+<td class=" subcell wholedocgutter indicator level6 levelguttercolor6" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level6 subcell" style="font-style: italic;">This field is only required if the version specified in your config.yaml does not exactly match the tag OR if you also have tags corresponding subsequent beta-quality releases.<br>
+</td>
+</tr></table></div></td></tr></table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img onmousedown="ioSwitch('pjHNxx9rHD-M', event.shiftKey)" id="ijHNxx9rHD-M" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level5 subcell" style="font-size: 14px;">version_tag_beta<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Git tag corresponding to the latest beta-quality release of the plugin.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pjHNxx9rHD-M" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor6"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level6 levelguttercolor6" style="width: 89px;"></td>
+<td class=" subcell wholedocgutter indicator level6 levelguttercolor6" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level6 subcell" style="font-style: italic;">This field is only required if you have tagged a beta-quality release which you wish to advertise on the Plugin Directory and the version specified in your config.yaml does not exactly match the tag.<br>
+</td>
+</tr></table></div></td></tr></table></div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('phDRNiKOJbaz', event.shiftKey)" id="ihDRNiKOJbaz" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell" style="font-size: 14px;">Strongly suggested fields<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="phDRNiKOJbaz" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">license<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">license_url<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">version_compatibility_mt<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">version_compatibility_melody<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img onmousedown="ioSwitch('piDveaKaQQdo', event.shiftKey)" id="iiDveaKaQQdo" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">latest_dev_branch<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Git branch representing the latest development for your plugin.  This will provide the Plugin Directory with the pulse of the activity in a repo and also provide users with the ability to download the very latest, cutting edge code.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="piDveaKaQQdo" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor6"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level6 levelguttercolor6" style="width: 89px;"></td>
+<td class=" subcell wholedocgutter indicator level6 levelguttercolor6" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level6 subcell">bug_tracker_url<br>
+</td>
+</tr></table></div></td></tr></table></div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pgeB5ch-b6Wr', event.shiftKey)" id="igeB5ch-b6Wr" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell" style="font-size: 14px;">Optional fields<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pgeB5ch-b6Wr" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-size: 14px;font-size: 14px;">name<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1" style="font-size: 14px;font-size: 14px;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This field can be used to override the value of the identically-named key in config.yaml. <br>
+</td>
+</tr></table></div></td></tr>
+</table></div>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell" style="font-size: 14px;">Behind the Scenes of the Metadata API<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('pgnNx0HN9u62', event.shiftKey)" id="ignNx0HN9u62" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level1 subcell">The REST API<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pgnNx0HN9u62" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell">Overview<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pblQnUI6FXQ9', event.shiftKey)" id="iblQnUI6FXQ9" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">Common request and response elements<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pblQnUI6FXQ9" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">Authentication<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Write about the authentication process, how it's done and when it's necessary<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">Parameters<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Write about common paramters (e.g. authentication, id or basename) and the context in which they are used<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">Return values<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Write about common return values and what they mean<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pl7Yk-1QgpRQ', event.shiftKey)" id="il7Yk-1QgpRQ" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">Error responses<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Write about error messaging and HTTP codes<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pl7Yk-1QgpRQ" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pmgzDroAhLAl', event.shiftKey)" id="imgzDroAhLAl" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">HTTP Codes<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pmgzDroAhLAl" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">200 OK<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">304 Not Modified<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">400 Bad Request<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">401 Unauthorized<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">403 Forbidden<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">404 Not Found<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">500 Internal Server Error<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">503 Service Unavailable<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('paM8ZemdbD_0', event.shiftKey)" id="iaM8ZemdbD_0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">Plugin author methods<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The following methods are all functions commonly used by plugin authors who wish to add new plugins to the centralized plugin directory or manage previously submitted ones. All require authentication by the plugin author, the Plugin Directory blog administrator or a system administrator.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="paM8ZemdbD_0" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pc5TmLI-vOfj', event.shiftKey)" id="ic5TmLI-vOfj" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">ADD<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Submits a Git repository URL into the system for inclusion in the directory,<br>pending validation and moderation.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pc5TmLI-vOfj" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Plugin owner, blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('poaqrUYlqEUG', event.shiftKey)" id="ioaqrUYlqEUG" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="poaqrUYlqEUG" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">git_url<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The read-only Git clone URL for the repository being submitted.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pghoXr4o-jmn', event.shiftKey)" id="ighoXr4o-jmn" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pghoXr4o-jmn" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A numeric record ID that uniquely identifies the plugin and can be used as a reference to it in other calls.  Unless the record could not be created due to some database issue, this key/value will be included in the response even if the submission is deemed invalid.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A dirified string that uniquely identifies the plugin and can be used as a reference to it in other calls.  Unless the record could not be created due to some database issue, this key/value will be included in the response even if the submission is deemed invalid.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">validated<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A numeric, boolean flag (0 or 1) indicating whether the submission has been checked by the validation process.  If the system is configured to process submission synchronously with each request, this will return true.  If asynchronous processing is enabled, a false value will be returned and, as with all status changes, the results of the validation will be sent to the email address listed in the plugin author's user profile once the process has been completed.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">error<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.  Hence, the lack of a value for this key combined with a true value for the validated key, indicates a successful and complete submission.  <br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pm1_nmYAZShM', event.shiftKey)" id="im1_nmYAZShM" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">EDIT<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method is nearly identical to the "ADD" method  but is used to update an existing record rather than create a new one.  This might be necessary if your initial submission contained an incorrect URL, you rename or transfer ownership of your plugin thereby altering the clone URL or if you migrate your repository to an entirely new provider. The Git URL and repository will undergo re-validation (as described in the documentation for the ADD method) prior to acceptance and publishing.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pm1_nmYAZShM" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Plugin owner, blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pm3ui6WnaPEO', event.shiftKey)" id="im3ui6WnaPEO" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The only difference from the "ADD" method is that the request contains an "id" or "basename" parameter used to identify an existing record to be modified.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pm3ui6WnaPEO" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">git_url<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The new Git clone URL for the canonical repository<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Please see ADD method return values which are identical to this method's<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pg-12fiD9MeG', event.shiftKey)" id="ig-12fiD9MeG" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">REMOVE<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method allows a plugin author to delete a repository's record from the system, thereby removing the plugin from the plugin directory.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pg-12fiD9MeG" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Plugin owner, blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pbz7Fdq-_Fwo', event.shiftKey)" id="ibz7Fdq-_Fwo" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pbz7Fdq-_Fwo" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The plugin author's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('piFtuAwqV61K', event.shiftKey)" id="iiFtuAwqV61K" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="piFtuAwqV61K" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The no-longer-valid ID of the removed record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The no-longer-valid basename of the removed record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">git_url<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The git clone URL contained in the removed record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">error<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pawLLqwGUZJe', event.shiftKey)" id="iawLLqwGUZJe" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">Plugin directory moderator methods<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The following methods require authentication by a user with either a Moderator or Blog administrator role on the blog or a System Administrator.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pawLLqwGUZJe" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pk09lv4V0fIb', event.shiftKey)" id="ik09lv4V0fIb" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">APPROVE<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method changes a plugin's moderation status signaling acceptance and triggers the republishing actions needed to display the plugin in the published directory. <br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pk09lv4V0fIb" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Blog moderator, blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pgE2rA1Z8ulR', event.shiftKey)" id="igE2rA1Z8ulR" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pgE2rA1Z8ulR" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The moderator's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The moderator's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pbiGGws2-gx7', event.shiftKey)" id="ibiGGws2-gx7" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pbiGGws2-gx7" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The numeric ID of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The basename string of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">moderation_status<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A boolean flag (0 or 1) indicating whether the submission is rejected or approved, respectively.  An undefined value indicates that moderation is still pending.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">error<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('peWhr32g8bKq', event.shiftKey)" id="ieWhr32g8bKq" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">REJECT<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method changes a plugin's moderation status signaling rejection and, if necessary, triggers republishing actions needed to remove the plugin from the published directory.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="peWhr32g8bKq" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Blog moderator, blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('poh5nTVnf4jA', event.shiftKey)" id="ioh5nTVnf4jA" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="poh5nTVnf4jA" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The moderator's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The moderator's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pfsNd_SvJTyF', event.shiftKey)" id="ifsNd_SvJTyF" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pfsNd_SvJTyF" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The numeric ID of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The basename string of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">moderation_status<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A boolean flag (0 or 1) indicating whether the submission is rejected or approved, respectively.  An undefined value indicates that moderation is still pending.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">error<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pcYZ-ATB1I0R', event.shiftKey)" id="icYZ-ATB1I0R" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">Internal methods<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level2 colbackground1"><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 25px;" class=" subcell wholedocgutter levelguttercolor2"></td>
+<td class=" subcell wholedocgutter levelguttercolor2" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Internal methods are usually called only by internal code but can be initiated by the Plugin Directory blog administrators for testing and queue clearing purposes.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pcYZ-ATB1I0R" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pmk6fDYHm7UX', event.shiftKey)" id="imk6fDYHm7UX" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">VALIDATE<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Performs a series of syntax and packaging checks on a repository looking for<br>things like invalid or unparse-able YAML files, unsupported packaging formats<br>and the like<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pmk6fDYHm7UX" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pb8nP9ivAeEx', event.shiftKey)" id="ib8nP9ivAeEx" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pb8nP9ivAeEx" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The blog admin's MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The blog admin's Plugin Directory API token which can be found on their user profile.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pfSHpWQ2Elf_', event.shiftKey)" id="ifSHpWQ2Elf_" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Optional parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pfSHpWQ2Elf_" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">asynchronous<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A numeric boolean value (0 or 1) which specifies whether the validation process should be done synchronously to the request or if it should be submitted as a job for later processing. Since this defaults to 0, it's only necessary if you wish to force an asynchronous process.<br>
+</td>
+</tr></table></div></td></tr>
+</table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Please see ADD method return values which are identical to this method's<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('plm8n2x4jYqZ', event.shiftKey)" id="ilm8n2x4jYqZ" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">NOTIFY<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="plm8n2x4jYqZ" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Yes<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authorized roles: Blog administrator or system administrator<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pj2C6OGmdtwp', event.shiftKey)" id="ij2C6OGmdtwp" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level2 subcell">Public methods<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pj2C6OGmdtwp" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pfGYxbaeRUBD', event.shiftKey)" id="ifGYxbaeRUBD" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">PING<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method notifies the system of a potential update to the tracked<br>repository. In response, the system will asynchronously initiate a pull from<br>the repository and evaluate the metadata to determine whether a directory<br>update is needed.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pfGYxbaeRUBD" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: No<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('phU1mliE848w', event.shiftKey)" id="ihU1mliE848w" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="phU1mliE848w" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('popJUwUWjbvf', event.shiftKey)" id="iopJUwUWjbvf" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="popJUwUWjbvf" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The numeric ID of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The basename string of the plugin's record<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">modified_on<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A timestamp indicating the when the record was last modified<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">error<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('ppndFET4FC4Z', event.shiftKey)" id="ipndFET4FC4Z" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level3 subcell">SHOW<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method provides access to some or all of the details of a plugin's record, depending on whether or not the request is authenticated using the plugin author's credentials.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="ppndFET4FC4Z" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level4 subcell">Authentication required: Only for more detailed views<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('ppbeRK0HBYYa', event.shiftKey)" id="ipbeRK0HBYYa" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Required parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="ppbeRK0HBYYa" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">id or basename<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">Requests may use either the numeric id or basename string to refer to the plugin of record<br>
+</td>
+</tr></table></div></td></tr>
+</table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pjUnxVXMBx9j', event.shiftKey)" id="ijUnxVXMBx9j" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Optional parameters<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pjUnxVXMBx9j" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">username<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">A MT/Melody username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell">token<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level5 colbackground1"><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 73px;" class=" subcell wholedocgutter levelguttercolor5"></td>
+<td class=" subcell wholedocgutter levelguttercolor5" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">The Plugin Directory API token corresponding to the specified username<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pdTqGHgM_wa_', event.shiftKey)" id="idTqGHgM_wa_" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level4 subcell">Return value<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method returns a JSON-formatted struct containing one or more of the following keys, depending on whether the request was authenticated and the role of the authenticated user.<br>
+</td>
+</tr></table></div></td></tr>
+</table>
+<div id="pdTqGHgM_wa_" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level5 subcell" style="font-style: italic;">TBD<br>
+</td>
+</tr></table></div></td></tr></table></div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level3 subcell">SEARCH<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level3 colbackground1"><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 41px;" class=" subcell wholedocgutter levelguttercolor3"></td>
+<td class=" subcell wholedocgutter levelguttercolor3" style="width: 15px;"></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">This method provides a rudimentary search interface to the plugin directory <br>
+</td>
+</tr></table></div></td></tr>
+</table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('pdL-2-4CeZ_A', event.shiftKey)" id="idL-2-4CeZ_A" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" border="0" alt="V" src="Expanded.png" title="collapse"></td>
+<td class=" content level1 subcell">Useful links<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pdL-2-4CeZ_A" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell"> <span><a href="https://dev.twitter.com/docs">dev.twitter.com—docs</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell"> <span><a href="http://developer.github.com/v3/">developer.github.com—v3</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell"> <span><a href="https://dev.twitter.com/docs/security-best-practices">https://dev.twitter.com/docs/security-best-practices</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img border="0" style="margin-left: 3px; margin-right:3px; margin-top: 3px;" alt="*" src="LeafRowHandle.png"></td>
+<td class=" content level2 subcell"></td>
+</tr></table></div></td></tr></table>
+</div>
+</td></tr></table></body>
+</html>

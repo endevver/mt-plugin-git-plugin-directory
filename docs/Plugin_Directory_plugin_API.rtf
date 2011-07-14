@@ -1,0 +1,934 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset129 AppleGothic;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red3\green0\blue91;\red85\green85\blue85;
+\red84\green84\blue84;}
+\pard\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 \up0 \nosupersub \ul \ulc0 \obliqueness0 \expansion0 Plugin Directory plugin APIs\
+\
+\pard\ql\qnatural\pardirnatural
+
+\b0\fs48 \cf2 \cb3 \ulnone Introduction\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\fs24 \cf0 \cb1 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	This document describes the resources that make up the Plugin Directory plugin API v1. This API actually consists of two distinct APIs:\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Repository metadata API\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Provides plugin authors control over nearly every aspect of their plugin's display in the plugin directory all from the comfort of their working Git repository and favorite text editor.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	REST API\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This API provides a RESTful, HTTP-based interface for programmatic access to all major system functions creating numerous opportunities for integration with third-party applications and utilities including, perhaps most importantly, Git hook scripts for automating Plugin Directory updates.\
+\pard\tx240\li240\fi-240\ql\qnatural\pardirnatural
+
+\f1\i0 \cf4 \cb3 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs48 \cf2 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	The Repository Metadata API\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\fs28 \cf0 \cb1 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	What is the Repository Metadata API\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Metadata API is the language and process plugin authors use to richly describe their plugins to the Plugin Directory. This is the very heart of the Plugin Directory and was designed to combat the two biggest problems with the original MT plugin directory (and, really, any user-generated directory): \
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Barrier to entry/Friction of interaction\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Software development is hard enough without adding extra steps like going to the Plugin Directory, logging in, filling out some huge form to submit a plugin you just released or updating the same form every time you push out an update.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Data rot\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 As time goes on, information not constantly tended to becomes stale and invalid.\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	How the API solves the problem\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Metadata API serves to eliminate (to the greatest possible degree) the overhead of submitting and updating plugin information by adapting to and integrating tightly with the typical workflow of a plugin developer.  Instead of forcing plugin developers to constantly cater to the maintenance needs of an external, centralized directory, the design leverages the power and decentralized nature of Git to automate nearly every aspect of plugin directory maintenance and respect the true canonical source for a plugin's metadata: each author's working repository.\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Using the Metadata API\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The vast majority of plugin metadata displayed by the Plugin Directory is provided and directly controlled by two YAML files located at the root of each plugin's repository: config.yaml and plugin.yaml.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	config.yaml\'97MT API interactions and plugin behaviors\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The config.yaml file is already well established amongst plugin developers as the file which defines a plugin's basic information as well as the entirety of its behaviors and interactions with MT/Melody's plugin API.  Other plugins such as Config Assistant and Theme Manager extend the configuration capabilities even further.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required fields\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Plugin Directory does not impose any changes on the vocabulary used or functionality provided by the config.yaml.  However, to be included into the Plugin Directory, the following fields must be defined.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	name\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The name of the plugin as shown within MT/Melody in the listing of installed plugins.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A string identifier for the plugin that should be short (< ~20 chars) but unique across *all* plugins. By convention, they are usually camel-cased and have no punctuation such as dashes, underscores, periods or colons.  Examples: ConfigAssistant, ThemeManager, OrderedCF, Log4MT\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	version\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin's version number. We generally suggest a three-part version, such as 1.0.0.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	plugin.yaml\'97Plugin meta-information\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin.yaml file is newly introduced by this specification and intended to contain all of the necessary metadata not already contained in the config.yaml.  By putting this extra information in a separate file only consumed by the Plugin Directory, it serves as a performance-friendly extension of each plugin's config.yaml file.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required fields\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	config_yaml_path\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The filesystem path to the config.yaml, relative to plugin.yaml. Example: plugins/Foo/config.yaml\
+\pard\tx1800\tx2040\li2040\fi-2040\ql\qnatural\pardirnatural
+
+\fs28 \cf0 	
+\i0\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\i\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	This field is only required if config.yaml is not in the root of the repository\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	version_tag\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Git tag corresponding to the latest production-ready release of the plugin. \
+\pard\tx1800\tx2040\li2040\fi-2040\ql\qnatural\pardirnatural
+
+\fs28 \cf0 	
+\i0\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\i\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	This field is only required if the version specified in your config.yaml does not exactly match the tag OR if you also have tags corresponding subsequent beta-quality releases.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	version_tag_beta\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Git tag corresponding to the latest beta-quality release of the plugin.\
+\pard\tx1800\tx2040\li2040\fi-2040\ql\qnatural\pardirnatural
+
+\fs28 \cf0 	
+\i0\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\i\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	This field is only required if you have tagged a beta-quality release which you wish to advertise on the Plugin Directory and the version specified in your config.yaml does not exactly match the tag.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Strongly suggested fields\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	license\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	license_url\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	version_compatibility_mt\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	version_compatibility_melody\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	latest_dev_branch\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Git branch representing the latest development for your plugin.  This will provide the Plugin Directory with the pulse of the activity in a repo and also provide users with the ability to download the very latest, cutting edge code.\
+\pard\tx1800\tx2040\li2040\fi-2040\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	bug_tracker_url\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Optional fields\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	name\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This field can be used to override the value of the identically-named key in config.yaml. \
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\i0\fs28 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs28 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Behind the Scenes of the Metadata API\
+\pard\tx240\li240\fi-240\ql\qnatural\pardirnatural
+
+\f1\fs26 \cf4 \cb3 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs48 \cf2 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	The REST API\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\fs24 \cf0 \cb1 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Overview\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Common request and response elements\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Write about the authentication process, how it's done and when it's necessary\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Parameters\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Write about common paramters (e.g. authentication, id or basename) and the context in which they are used\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return values\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Write about common return values and what they mean\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Error responses\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Write about error messaging and HTTP codes\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	HTTP Codes\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	200 OK\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	304 Not Modified\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	400 Bad Request\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	401 Unauthorized\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	403 Forbidden\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	404 Not Found\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	500 Internal Server Error\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	503 Service Unavailable\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Plugin author methods\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The following methods are all functions commonly used by plugin authors who wish to add new plugins to the centralized plugin directory or manage previously submitted ones. All require authentication by the plugin author, the Plugin Directory blog administrator or a system administrator.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	ADD\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Submits a Git repository URL into the system for inclusion in the directory,\
+pending validation and moderation.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Plugin owner, blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	git_url\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The read-only Git clone URL for the repository being submitted.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A numeric record ID that uniquely identifies the plugin and can be used as a reference to it in other calls.  Unless the record could not be created due to some database issue, this key/value will be included in the response even if the submission is deemed invalid.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A dirified string that uniquely identifies the plugin and can be used as a reference to it in other calls.  Unless the record could not be created due to some database issue, this key/value will be included in the response even if the submission is deemed invalid.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	validated\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A numeric, boolean flag (0 or 1) indicating whether the submission has been checked by the validation process.  If the system is configured to process submission synchronously with each request, this will return true.  If asynchronous processing is enabled, a false value will be returned and, as with all status changes, the results of the validation will be sent to the email address listed in the plugin author's user profile once the process has been completed.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	error\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.  Hence, the lack of a value for this key combined with a true value for the validated key, indicates a successful and complete submission.  \
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	EDIT\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method is nearly identical to the "ADD" method  but is used to update an existing record rather than create a new one.  This might be necessary if your initial submission contained an incorrect URL, you rename or transfer ownership of your plugin thereby altering the clone URL or if you migrate your repository to an entirely new provider. The Git URL and repository will undergo re-validation (as described in the documentation for the ADD method) prior to acceptance and publishing.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Plugin owner, blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The only difference from the "ADD" method is that the request contains an "id" or "basename" parameter used to identify an existing record to be modified.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	git_url\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The new Git clone URL for the canonical repository\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Please see ADD method return values which are identical to this method's\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	REMOVE\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method allows a plugin author to delete a repository's record from the system, thereby removing the plugin from the plugin directory.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Plugin owner, blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The plugin author's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The no-longer-valid ID of the removed record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The no-longer-valid basename of the removed record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	git_url\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The git clone URL contained in the removed record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	error\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Plugin directory moderator methods\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The following methods require authentication by a user with either a Moderator or Blog administrator role on the blog or a System Administrator.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	APPROVE\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method changes a plugin's moderation status signaling acceptance and triggers the republishing actions needed to display the plugin in the published directory. \
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Blog moderator, blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The moderator's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The moderator's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The numeric ID of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The basename string of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	moderation_status\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A boolean flag (0 or 1) indicating whether the submission is rejected or approved, respectively.  An undefined value indicates that moderation is still pending.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	error\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	REJECT\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method changes a plugin's moderation status signaling rejection and, if necessary, triggers republishing actions needed to remove the plugin from the published directory.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Blog moderator, blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The moderator's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The moderator's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The numeric ID of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The basename string of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	moderation_status\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A boolean flag (0 or 1) indicating whether the submission is rejected or approved, respectively.  An undefined value indicates that moderation is still pending.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	error\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Internal methods\
+\pard\tx1520\tx2080\tx2640\tx3200\tx3760\tx4320\tx4880\tx5440\tx6000\tx6560\tx7120\tx7680\li960\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Internal methods are usually called only by internal code but can be initiated by the Plugin Directory blog administrators for testing and queue clearing purposes.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	VALIDATE\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Performs a series of syntax and packaging checks on a repository looking for\
+things like invalid or unparse-able YAML files, unsupported packaging formats\
+and the like\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Blog administrator or system administrator\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The blog admin's MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The blog admin's Plugin Directory API token which can be found on their user profile.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Optional parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	asynchronous\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A numeric boolean value (0 or 1) which specifies whether the validation process should be done synchronously to the request or if it should be submitted as a job for later processing. Since this defaults to 0, it's only necessary if you wish to force an asynchronous process.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Please see ADD method return values which are identical to this method's\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	NOTIFY\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Yes\
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authorized roles: Blog administrator or system administrator\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Public methods\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	PING\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method notifies the system of a potential update to the tracked\
+repository. In response, the system will asynchronously initiate a pull from\
+the repository and evaluate the metadata to determine whether a directory\
+update is needed.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: No\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The numeric ID of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The basename string of the plugin's record\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	modified_on\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A timestamp indicating the when the record was last modified\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	error\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A human-friendly message that describes an error condition.  This key/value will only be present when an error has occurred and will be accompanied by an HTTP error code sent in the response headers.\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	SHOW\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method provides access to some or all of the details of a plugin's record, depending on whether or not the request is authenticated using the plugin author's credentials.\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Authentication required: Only for more detailed views\
+	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Required parameters\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The only difference from the "ADD" method is that the request contains an "id" or "basename" parameter used to identify an existing record to be modified.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	id or basename\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 Requests may use either the numeric id or basename string to refer to the plugin of record\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Optional parameters\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The only difference from the "ADD" method is that the request contains an "id" or "basename" parameter used to identify an existing record to be modified.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	username\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 A MT/Melody username\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	token\
+\pard\tx2600\tx3160\tx3720\tx4280\tx4840\tx5400\tx5960\tx6520\tx7080\tx7640\tx8200\tx8760\li2040\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 The Plugin Directory API token corresponding to the specified username\
+\pard\tx1080\tx1320\li1320\fi-1320\ql\qnatural\pardirnatural
+
+\i0\fs24 \cf0 	
+\f1\fs26 \cf4 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Return value\
+\pard\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7280\tx7840\tx8400\li1680\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method returns a JSON-formatted struct containing one or more of the following keys, depending on whether the request was authenticated and the role of the authenticated user.\
+\pard\tx1440\tx1680\li1680\fi-1680\ql\qnatural\pardirnatural
+
+\fs24 \cf0 	
+\i0\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\i\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	TBD\
+\pard\tx720\tx960\li960\fi-960\ql\qnatural\pardirnatural
+
+\i0 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	SEARCH\
+\pard\tx1880\tx2440\tx3000\tx3560\tx4120\tx4680\tx5240\tx5800\tx6360\tx6920\tx7480\tx8040\li1320\ql\qnatural\pardirnatural
+
+\i\fs26 \cf5 This method provides a rudimentary search interface to the plugin directory \
+\pard\tx240\li240\fi-240\ql\qnatural\pardirnatural
+
+\f1\i0 \cf4 \cb3 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'a1\'e5
+\f0\fs48 \cf2 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	Useful links\
+\pard\tx360\tx600\li600\fi-600\ql\qnatural\pardirnatural
+
+\fs24 \cf0 \cb1 	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	{\field{\*\fldinst{HYPERLINK "https://dev.twitter.com/docs"}}{\fldrslt dev.twitter.com\'97docs\
+}}	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	{\field{\*\fldinst{HYPERLINK "http://developer.github.com/v3/"}}{\fldrslt developer.github.com\'97v3\
+}}	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	{\field{\*\fldinst{HYPERLINK "https://dev.twitter.com/docs/security-best-practices"}}{\fldrslt https://dev.twitter.com/docs/security-best-practices\
+}}	
+\fs26 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 \'95
+\fs24 \cf0 \up0 \nosupersub \ulnone \obliqueness0 \expansion0 	\
+}
