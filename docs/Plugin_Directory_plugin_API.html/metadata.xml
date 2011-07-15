@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>kMDItemAuthors</key>
+	<array>
+		<string>Jay Allen</string>
+	</array>
+	<key>kMDItemCopyright</key>
+	<string>Jay Allen, Endevver LLC</string>
+	<key>kMDItemDescription</key>
+	<string>Comprehensive developer API documentation for the application that will run the "next generation" MT/Melody plugin directory.</string>
+	<key>kMDItemKeywords</key>
+	<array>
+		<string>developer</string>
+		<string>documentaion</string>
+		<string>API</string>
+		<string>Movable Type</string>
+		<string>Melody</string>
+		<string>plugins</string>
+		<string>plugin directory</string>
+		<string>Git</string>
+		<string>GitHub</string>
+	</array>
+	<key>kMDItemOrganizations</key>
+	<array>
+		<string>Endevver LLC</string>
+	</array>
+	<key>kMDItemSubject</key>
+	<string>Plugin Directory plugin API</string>
+</dict>
+</plist>
