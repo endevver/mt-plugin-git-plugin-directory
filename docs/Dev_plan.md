@@ -5,11 +5,13 @@
 
 The following is high-level development plan for the plugin:
 
-1. Base plugin function and initial (non-functional) API endpoints
+1. Base plugin function and initial public API endpoints
 
+    * `plugin.cgi`
     * `PluginDirectory`
+    * `PluginDirectory::App`
+    * `PluginDirectory::App::API`
     * `PluginDirectory::API`
-    * `PluginDirectory::API::Metadata`
     * `PluginDirectory::API::REST`
 
 2. Plugin Directory item object persistence 
@@ -18,6 +20,7 @@ The following is high-level development plan for the plugin:
 
 3. Plugin Directory item metadata parsing and validation
 
+    * `PluginDirectory::API::Metadata`
     * `PluginDirectory::Item::Metadata`
     * `PluginDirectory::Item::YAML`
     * `PluginDirectory::Item::YAML::Config`

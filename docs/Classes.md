@@ -7,19 +7,29 @@ their descriptions:
 
   This plugin's `MT::Plugin` subclass and value for `plugin_class` key.
 
+* `PluginDirectory::App`
+
+  An MT::App subclass providing handlers for public access to the plugin
+  directory.
+
+* `PluginDirectory::App::API`
+
+  A subclass of `PluginDirectory::App` which provides handlers for the REST
+  API.
+
 * `PluginDirectory::API`
 
-  The base class for the Plugin Directory's API
+  The base class for the Plugin Directory's API classes
 
 * `PluginDirectory::API::Metadata`
 
-  The class which defines the Plugin Directory's Metadata API and handles all
-  access to it
+  A subclass of `PluginDirectory::API` which defines the Plugin Directory's
+  Metadata API.
 
 * `PluginDirectory::API::REST`
 
-  The class which defines the Plugin Directory's REST API and handles all
-  access to it
+  A subclass of `PluginDirectory::API` which defines the Plugin Directory's
+  REST API.
 
 * `PluginDirectory::Blog`
 
